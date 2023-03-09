@@ -1,0 +1,26 @@
+import java.util.*;
+class HelloWorld {
+    public static void permutation(int arr[],int index)
+    {
+        if(index>=arr.length)
+        {
+            System.out.println(Arrays.toString(arr));
+            return;
+        }
+        for(int i=index;i<arr.length;i++)
+        {
+            int tmp=arr[index];
+            arr[index]=arr[i];
+            arr[i]=tmp;
+            //backtrating
+            permutation(arr,index+1);
+            int s1=arr[index];
+            arr[index]=arr[i];
+            arr[i]=s1;
+        }
+    }
+    public static void main(String[] args) {
+        int arr[]={1,2,3};
+        permutation(arr,0);
+    }
+}
